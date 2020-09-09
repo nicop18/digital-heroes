@@ -6,7 +6,6 @@ let express = require('express');
 const app = express()
 // modulo nativo de node para trabajar con rutas de archivos
 const path = require('path');
-const { json } = require('express');
 
 
 app.get("/", function(req, res){
@@ -18,10 +17,10 @@ app.get("/", function(req, res){
 
 app.get("/heroes", function(req, res){
     
-    
+    let json = path.resolve("heroes.json")
     
 
-    res.sendfile("heroes.json")
+    res.sendFile(json)
 })
 
 app.listen(3000)
